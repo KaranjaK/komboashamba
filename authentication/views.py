@@ -22,3 +22,12 @@ class UserSerializer(serializers.ModelSerializer):
             'min_length': f'Your Password has to be more that {MIN_LENGTH} characters!!'
         }
     )
+
+    class META:
+        model = User
+        fields = '__all__'
+
+    def validate(self, attrs):
+        if attrs['password'] != attrs['password2']:
+            raise serializers.ValidationError('The two passwords do not match!!')
+        return attrs
