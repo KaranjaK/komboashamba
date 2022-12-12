@@ -1,15 +1,24 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework import viewsets, serializers
+from django.contrib.auth.models import User
+
+MIN_LENGTH = 8
 
 # Create your views here.
-def home(request):
-    return HttpResponse("Wallla")
+class UserSerializer(serializers.ModelSerializer):
 
-def signup(request):
-    return render(request, 'authentication.signup/html')
+    password = serializers.CharField(
+        write_only = True,
+        min_length = MIN_LENGTH,
+        error_messages = {
+            'min_length': f'Your Password has to be more that {MIN_LENGTH} characters!!'
+        }
+    )
 
-def signin(request):
-    return render(request, 'authentication.signin/html')
-
-def signout(request):
-    pass
+    password2 = serializers.CharField(
+        write_only = True,
+        min_length = MIN_LENGTH,
+        error_messages = {
+            'min_length': f'Your Password has to be more that {MIN_LENGTH} characters!!'
+        }
+    )
