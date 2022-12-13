@@ -44,3 +44,8 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+    
+class USerViewSet(viewsets.ModelViewSet):
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
