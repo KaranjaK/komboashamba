@@ -31,3 +31,16 @@ class UserSerializer(serializers.ModelSerializer):
         if attrs['password'] != attrs['password2']:
             raise serializers.ValidationError('The two passwords do not match!!')
         return attrs
+    
+    def create(self, validated_data):
+        user = User.objects.create(
+            username = validated_data['username'],
+            email = validated_data['email'],
+            first_name = validated_data['first_name'],
+            last_name = validated_data['last_name'],
+            active = validated_data['active'],
+        )
+        user.set_password(validated_data['password'])
+        user.save()
+
+        return user
