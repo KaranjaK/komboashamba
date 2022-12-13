@@ -4,7 +4,7 @@ from . import views
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router .register('', views.USerViewSet)
+router .register('', views.UserViewSet)
 
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls'))

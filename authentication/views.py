@@ -23,7 +23,7 @@ class UserSerializer(serializers.ModelSerializer):
         }
     )
 
-    class META:
+    class Meta:
         model = User
         fields = '__all__'
 
@@ -38,14 +38,13 @@ class UserSerializer(serializers.ModelSerializer):
             email = validated_data['email'],
             first_name = validated_data['first_name'],
             last_name = validated_data['last_name'],
-            active = validated_data['active'],
         )
         user.set_password(validated_data['password'])
         user.save()
 
         return user
     
-class USerViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
