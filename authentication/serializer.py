@@ -10,7 +10,7 @@ MIN_LENGTH = 8
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = 'username','email', 'first_name','last_name', 'password','password2','phone_number'
+        fields = 'id', 'username','email', 'first_name','last_name', 'password','password2','phone_number'
 
     password = serializers.CharField(
         write_only = True,
