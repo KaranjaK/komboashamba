@@ -8,7 +8,7 @@ from rest_framework_simplejwt.views import (
 )
 
 router = DefaultRouter()
-router.register('api', views.UserViewSet, basename='user')
+router.register('api', views.UserViewSet, basename='api')
 
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),

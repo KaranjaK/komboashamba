@@ -14,6 +14,9 @@ pillow = "*"
 django-rest-polymorphic = "*"
 djongo = "*"
 psycopg2-binary = "*"
+drf-yasg = "*"
+drf-yasg2 = "*"
+python-decouple = "*"
 
 [dev-packages]
 
