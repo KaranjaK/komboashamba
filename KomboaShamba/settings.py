@@ -92,8 +92,12 @@ WSGI_APPLICATION = 'KomboaShamba.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'XjjOF214eYmlpK5YTFYk',
+        'HOST': 'containers-us-west-168.railway.app',
+        'PORT': '5596',
     }
 }
 

@@ -9,6 +9,11 @@ djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
 djangorestframework-simplejwt = "*"
+django-phonenumber-field = {extras = ["phonenumbers"], version = "*"}
+pillow = "*"
+django-rest-polymorphic = "*"
+djongo = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 

@@ -1,14 +1,16 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-from rest_framework import viewsets, serializers
+from rest_framework import serializers
+from authentication.models import Profile
 
-MIN_LENGTH = 8
+
+MIN_LENGTH = 8    
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = get_user_model()
-        fields = '__all__'
+        model = Profile
+        fields = 'username','email', 'first_name','last_name', 'password','password2','phone_number'
 
     password = serializers.CharField(
         write_only = True,
